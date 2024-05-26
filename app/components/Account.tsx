@@ -1,16 +1,15 @@
 "use client"
 
-import { useAccount, useDisconnect, useEnsAvatar, useEnsName, useBalance, useChainId } from "wagmi"
+import { useAccount, useDisconnect, useEnsAvatar, useEnsName, useBalance } from "wagmi"
 
 export function Account() {
   const { address } = useAccount()
   const { disconnect } = useDisconnect()
-  const chainId = useChainId()
   const { data: ensName } = useEnsName({ address })
   const { data: ensAvatar } = useEnsAvatar({ name: ensName! })
   const { data, isError, isLoading } = useBalance({
     address: address,
-    chainId: chainId,
+    chainId: 31337,
   })
 
   return (

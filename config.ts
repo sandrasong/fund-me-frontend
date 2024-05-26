@@ -1,13 +1,12 @@
 import { http, createConfig, cookieStorage, createStorage } from "wagmi"
-import { localhost, sepolia, mainnet } from "wagmi/chains"
+import { hardhat, sepolia } from "wagmi/chains"
 import { injected, coinbaseWallet } from "wagmi/connectors"
 
 export const config = createConfig({
-  chains: [mainnet, localhost, sepolia],
+  chains: [hardhat, sepolia],
   connectors: [injected(), coinbaseWallet()],
   transports: {
-    [mainnet.id]: http(),
-    [localhost.id]: http(),
+    [hardhat.id]: http(),
     [sepolia.id]: http(),
   },
   ssr: true,

@@ -1,6 +1,11 @@
 "use client"
 
-import { type BaseError, useWaitForTransactionReceipt, useWriteContract, useChainId } from "wagmi"
+import {
+  type BaseError,
+  // type UseWatchContractEventReturnType,
+  useWaitForTransactionReceipt,
+  useWriteContract,
+} from "wagmi"
 import { parseEther } from "viem"
 import { abi, address } from "../../constants"
 import * as React from "react"
@@ -22,6 +27,7 @@ export function Fund() {
 
   const { isLoading: isConfirming, isSuccess: isConfirmed } = useWaitForTransactionReceipt({
     hash,
+    chainId: 31337,
   })
 
   return (
@@ -29,6 +35,7 @@ export function Fund() {
       <input name="value" placeholder="0.5" required />
       <button type="submit">Fund</button>
       {hash && <div>Transaction Hash: {hash}</div>}
+      {isConfirming && !isConfirmed && <div>Transaction confirmed.</div>}
       {isConfirmed && <div>Transaction confirmed.</div>}
       {error && <div>Error: {(error as BaseError).shortMessage || error.message}</div>}
     </form>

@@ -5,6 +5,11 @@ import { useAccount } from "wagmi"
 
 export function ConnectWallet() {
   const { isConnected } = useAccount()
-  if (isConnected) return <Account />
+  if (isConnected)
+    return (
+      <div>
+        <Account />
+      </div>
+    )
   return <WalletOptions />
 }

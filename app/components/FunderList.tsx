@@ -13,7 +13,7 @@ type Funder = {
 
 export function FunderList() {
   const [funderList, setFunderList] = useState<Funder[]>([])
-  const [latestEventHash, setLatestEventHash] = useState("")
+  const [latestEventHash, setLatestEventHash] = useState<`0x${string}` | null>()
 
   useWatchContractEvent({
     address: address,
@@ -26,7 +26,7 @@ export function FunderList() {
     onLogs(logs) {
       const { from, amount } = logs[0].args
       const ethAmount = formatEther(amount)
-      const eventHash = logs[0].transactionHash?.toString() as string
+      const eventHash = logs[0].transactionHash
       if (eventHash !== latestEventHash) {
         setLatestEventHash(eventHash)
         setFunderList([{ from: from, amount: ethAmount }, ...funderList])

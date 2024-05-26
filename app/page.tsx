@@ -3,6 +3,7 @@ import { ConnectWallet } from "./components/ConnectWallet"
 import { ContractBalance } from "./components/ContractBalance"
 import { CheckOwner } from "./components/CheckOwner"
 import { Fund } from "./components/Fund"
+import { Withdraw } from "./components/Withdraw"
 import { FunderList } from "./components/FunderList"
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
       </div>
       <CheckOwner />
       <Fund />
+      <Withdraw />
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-2 lg:text-left">
         <FunderList />
 

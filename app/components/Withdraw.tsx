@@ -5,18 +5,15 @@ import { parseEther } from "viem"
 import { abi, address } from "../../constants"
 import * as React from "react"
 
-export function Fund() {
+export function Withdraw() {
   const { data: hash, error, isPending, writeContract } = useWriteContract()
-  async function submit(e: React.FormEvent<HTMLFormElement>) {
+  async function withdraw(e: React.MouseEvent) {
     e.preventDefault()
-    const formData = new FormData(e.target as HTMLFormElement)
-    const value = formData.get("value") as string
     writeContract({
       abi,
       address: address,
-      functionName: "fund",
+      functionName: "withdraw",
       chainId: 31337,
-      value: parseEther(value),
     })
   }
 
@@ -26,14 +23,17 @@ export function Fund() {
   })
 
   return (
-    <form onSubmit={submit}>
-      <label>ETH amount</label>
-      <input name="value" placeholder="0.5" required />
-      <button type="submit">Fund</button>
+    <div>
+      <button
+        onClick={withdraw}
+        className="mt-2 rounded-lg border border-gray-400 px-4 py-3 transition-colors bg-gradient-to-b from-zinc-200"
+      >
+        Withdraw
+      </button>
       {hash && <div>Transaction Hash: {hash}</div>}
       {isConfirming && !isConfirmed && <div>Transaction confirmed.</div>}
       {isConfirmed && <div>Transaction confirmed.</div>}
       {error && <div>Error: {(error as BaseError).shortMessage || error.message}</div>}
-    </form>
+    </div>
   )
 }

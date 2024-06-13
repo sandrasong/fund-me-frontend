@@ -36,12 +36,20 @@ export function FunderList() {
 
   const funderItems = funderList.map((funder, index) => {
     return (
-      <li key={index}>
-        {funder.amount} is funded by <br />
+      <li
+        key={index}
+        className="border-b border-red-200 pb-6 pt-8 lg:w-auto lg:rounded-2xl lg:border lg:p-4 tracking-tight leading-relaxed text-slate-800"
+      >
+        <span className="font-sans text-xl font-semibold text-black">{funder.amount}</span> is
+        funded by <br />
         {funder.from}
       </li>
     )
   })
 
-  return <ul>{funderItems}</ul>
+  return (
+    <ul className="my-4 mb-32 grid text-center lg:w-full lg:max-w-5xl md:grid-cols-2 lg:text-left gap-4">
+      {funderItems}
+    </ul>
+  )
 }

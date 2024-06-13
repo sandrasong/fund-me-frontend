@@ -1,7 +1,6 @@
 "use client"
 
 import { type BaseError, useWaitForTransactionReceipt, useWriteContract } from "wagmi"
-import { parseEther } from "viem"
 import { abi, address } from "../../constants"
 import * as React from "react"
 
@@ -23,13 +22,14 @@ export function Withdraw() {
   })
 
   return (
-    <div>
+    <div className="text-center">
       <button
         onClick={withdraw}
-        className="mt-2 rounded-lg border border-gray-400 px-4 py-3 transition-colors bg-gradient-to-b from-zinc-200"
+        className="rounded-sm border border-red-400 px-4 py-3 transition-colors bg-[#FF9CAF] font-medium hover:bg-[#FFE8ED] hover:text-[#EF4B6D]"
       >
         Withdraw
       </button>
+      <p className="text-sm mt-1">For contract owner only</p>
       {hash && <div>Transaction Hash: {hash}</div>}
       {isConfirming && !isConfirmed && <div>Transaction confirmed.</div>}
       {isConfirmed && <div>Transaction confirmed.</div>}

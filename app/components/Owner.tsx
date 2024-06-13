@@ -13,5 +13,10 @@ export function Owner() {
   })
   console.log(chainId)
 
-  return <div>{`Owner: ${data}`}</div>
+  return (
+    <div>
+      Owner <br />
+      {`${data}`}
+    </div>
+  )
 }

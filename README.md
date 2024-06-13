@@ -1,9 +1,18 @@
 This project uses [Next.js](https://nextjs.org/), [wagmi](https://wagmi.sh/) and [tailwindcss](https://tailwindcss.com/)  to create the Fund Me front end.
 
-## Getting Started
+## Deploy the contract and run the localhost
 
-First, run the development server:
+First, run the hardhat server in the Fund-Me-Contract folder:
 
+```bash
+npx hardhat node
+```
+
+Then, add a testing account to a browser wallet such as Metamask or Phantom. You can find all testing accounts in your terminal after deploying the hardhat node. 
+
+Don't forget to change the FundMe contract `address` in `constants > index.ts`
+
+Last, run the frontend server:
 ```bash
 npm run dev
 # or
@@ -16,11 +25,3 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

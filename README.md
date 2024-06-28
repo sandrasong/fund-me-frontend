@@ -25,3 +25,5 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Screenshot
+![fond me frontend screenshot for readme](https://github.com/sandrasong/fund-me-frontend/assets/11672986/5996e3b2-5d5c-4632-95af-d8a38e796cd4)
